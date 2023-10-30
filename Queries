@@ -442,20 +442,19 @@ ORDER BY salary DESC;
 -- CASE & GROUP BY 
 -- Return the count of employees in each pay category
 SELECT a.pay_category, COUNT(*)
-FROM(
-	SELECT
+FROM
+	(SELECT
 		employee_id,
-	    first_name || ' ' || last_name as full_name,
+		first_name || ' ' || last_name as full_name,
 		salary,
-    CASE
-			WHEN salary < 20000 THEN 'low pay'
-			WHEN salary BETWEEN 20000 and 50000 THEN 'medium pay'
-			WHEN salary > 50000 THEN 'high pay'
-			ELSE 'no pay'
-		END as pay_category
+    	CASE
+		WHEN salary < 20000 THEN 'low pay'
+		WHEN salary BETWEEN 20000 and 50000 THEN 'medium pay'
+		WHEN salary > 50000 THEN 'high pay'
+		ELSE 'no pay'
+	END as pay_category
 	FROM employees
-	ORDER BY salary DESC
-) a
+	ORDER BY salary DESC) a
 GROUP BY a.pay_category;
 
 -- Transpose above
@@ -483,9 +482,21 @@ SELECT
 	l.city,
 	l.country
 FROM 
-    (shops s
+    (shops as s
 	inner JOIN locations as l
 	ON s.city_id = l.city_id);
+
+-- Or it can also be written like this: 
+SELECT 
+	s.coffeeshop_name,
+	l.city,
+	l.country
+FROM 
+    	(shops s
+	inner JOIN locations l
+	ON s.city_id = l.city_id);
+
+-- Reminder: AS is optional
 
 SELECT
   s.coffeeshop_name,
