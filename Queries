@@ -205,9 +205,9 @@ FROM employees;
 
 -- TRIM
 SELECT
-    LENGTH('     HELLO     ') AS hello_with_spaces,
-LENGTH('HELLO') AS hello_no_spaces,
-    LENGTH(TRIM('     HELLO     ')) AS hello_trimmed;
+    	LENGTH('     HELLO     ') AS hello_with_spaces,
+    	LENGTH('HELLO') AS hello_no_spaces,
+    	LENGTH(TRIM('     HELLO     ')) AS hello_trimmed;
 
 --=========================================================
 
