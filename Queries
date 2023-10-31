@@ -225,7 +225,7 @@ SELECT
 	first_name || ' ' || last_name || ' makes ' || salary
 FROM employees;
 
--- Boolean expressios
+-- Boolean expressions
 -- if the person makes less than 50k, then true, otherwise false
 SELECT
 	first_name || ' ' || last_name AS full_name,
