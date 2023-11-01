@@ -661,10 +661,8 @@ WHERE salary > 35000 AND coffeeshop_id IN ( -- US coffeeshop_id's
 SELECT
 	hire_date,
 	salary,
-	(
-		SELECT SUM(salary)
+	(SELECT SUM(salary)
 		FROM employees e2
-		WHERE e2.hire_date BETWEEN e1.hire_date - 30 AND e1.hire_date
-	) AS pay_pattern
+		WHERE e2.hire_date BETWEEN e1.hire_date - 30 AND e1.hire_date) AS pay_pattern
 FROM employees e1
 ORDER BY hire_date;
